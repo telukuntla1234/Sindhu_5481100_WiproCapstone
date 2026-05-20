@@ -1,0 +1,105 @@
+2026-05-20 13:30:50,273 : INFO : Payment option selected successfully
+2026-05-20 13:31:01,749 : INFO : Popup not present
+2026-05-20 13:31:02,434 : INFO : Login button clicked
+2026-05-20 13:31:03,983 : INFO : Mobile number entered
+2026-05-20 13:31:04,447 : INFO : Continue button clicked
+2026-05-20 13:31:20,395 : INFO : Hotels menu clicked
+2026-05-20 13:31:21,886 : INFO : Jaipur destination selected
+2026-05-20 13:31:22,198 : INFO : Checkin selected
+2026-05-20 13:31:22,506 : INFO : Checkin date selected
+2026-05-20 13:31:22,808 : INFO : Checkout date selected
+2026-05-20 13:31:23,160 : INFO : Rooms and guests selected
+2026-05-20 13:31:23,449 : INFO : Search button clicked
+2026-05-20 13:31:23,906 : INFO : Screenshot saved at: reports/screenshots/hotel_search_20260520_133123.png
+2026-05-20 13:31:23,928 : INFO : Hotel search test passed
+2026-05-20 13:31:36,911 : INFO : Popup not present
+2026-05-20 13:31:37,556 : INFO : Login button clicked
+2026-05-20 13:31:38,799 : INFO : Mobile number entered
+2026-05-20 13:31:39,138 : INFO : Continue button clicked
+2026-05-20 13:31:55,813 : INFO : Hotels menu clicked
+2026-05-20 13:31:56,955 : INFO : Jaipur destination selected
+2026-05-20 13:31:57,320 : INFO : Checkin selected
+2026-05-20 13:31:57,640 : INFO : Checkin date selected
+2026-05-20 13:31:57,989 : INFO : Checkout date selected
+2026-05-20 13:31:58,480 : INFO : Search button clicked
+2026-05-20 13:32:00,650 : INFO : Hotel popup closed successfully
+2026-05-20 13:32:03,179 : INFO : Free breakfast filter selected
+2026-05-20 13:32:03,440 : INFO : Screenshot saved at: reports/screenshots/hotel_filters_20260520_133203.png
+2026-05-20 13:32:03,446 : INFO : Hotel filters test passed
+2026-05-20 13:32:16,227 : INFO : Popup not present
+2026-05-20 13:32:16,880 : INFO : Login button clicked
+2026-05-20 13:32:18,137 : INFO : Mobile number entered
+2026-05-20 13:32:18,622 : INFO : Continue button clicked
+2026-05-20 13:32:34,631 : INFO : Hotels menu clicked
+2026-05-20 13:32:36,618 : INFO : Jaipur destination selected
+2026-05-20 13:32:36,984 : INFO : Checkin selected
+2026-05-20 13:32:37,321 : INFO : Checkin date selected
+2026-05-20 13:32:37,644 : INFO : Checkout date selected
+2026-05-20 13:32:37,972 : INFO : Search button clicked
+2026-05-20 13:32:40,070 : INFO : Hotel popup closed successfully
+2026-05-20 13:32:40,418 : INFO : Book now button clicked
+2026-05-20 13:32:40,499 : INFO : Switched to booking window
+2026-05-20 13:32:43,963 : INFO : Reserve room button clicked
+2026-05-20 13:32:46,293 : INFO : Guest details entered successfully
+2026-05-20 13:32:46,528 : INFO : Screenshot saved at: reports/screenshots/guest_details_20260520_133246.png
+2026-05-20 13:32:46,534 : INFO : Guest details test passed
+2026-05-20 13:32:59,698 : INFO : Popup not present
+2026-05-20 13:33:00,299 : INFO : Login button clicked
+2026-05-20 13:33:01,308 : INFO : Mobile number entered
+2026-05-20 13:33:01,735 : INFO : Continue button clicked
+2026-05-20 13:33:17,645 : INFO : Hotels menu clicked
+2026-05-20 13:33:19,098 : INFO : Jaipur destination selected
+2026-05-20 13:33:19,372 : INFO : Checkin selected
+2026-05-20 13:33:19,739 : INFO : Checkin date selected
+2026-05-20 13:33:20,057 : INFO : Checkout date selected
+2026-05-20 13:33:20,340 : INFO : Search button clicked
+2026-05-20 13:33:22,521 : INFO : Hotel popup closed successfully
+2026-05-20 13:33:22,936 : INFO : Book now button clicked
+2026-05-20 13:33:23,010 : INFO : Switched to booking window
+2026-05-20 13:33:27,863 : INFO : Reserve room button clicked
+2026-05-20 13:33:29,262 : INFO : Guest details entered successfully
+2026-05-20 13:33:29,460 : INFO : Pay now button clicked
+2026-05-20 13:33:36,299 : INFO : Card number entered
+2026-05-20 13:33:36,501 : INFO : Expiry date entered
+2026-05-20 13:33:36,653 : INFO : CVV entered
+2026-05-20 13:33:36,859 : INFO : Screenshot saved at: reports/screenshots/payment_test_20260520_133336.png
+2026-05-20 13:33:36,865 : INFO : Payment test passed
+2026-05-20 13:33:50,147 : INFO : Popup not present
+2026-05-20 13:33:50,856 : INFO : Login button clicked
+2026-05-20 13:33:51,702 : INFO : Mobile number entered
+2026-05-20 13:33:51,969 : INFO : Continue button clicked
+2026-05-20 13:34:07,957 : INFO : Hotels menu clicked
+2026-05-20 13:34:09,398 : INFO : Jaipur destination selected
+2026-05-20 13:34:09,741 : INFO : Checkin selected
+2026-05-20 13:34:10,013 : INFO : Checkin date selected
+2026-05-20 13:34:10,299 : INFO : Checkout date selected
+2026-05-20 13:34:10,666 : INFO : Search button clicked
+2026-05-20 13:34:12,685 : INFO : Hotel popup closed successfully
+2026-05-20 13:34:13,073 : INFO : Book now button clicked
+2026-05-20 13:34:13,121 : INFO : Switched to booking window
+2026-05-20 13:34:16,986 : INFO : Reserve room button clicked
+2026-05-20 13:34:18,531 : INFO : Guest details entered successfully
+2026-05-20 13:34:18,731 : INFO : Pay now button clicked
+2026-05-20 13:34:24,651 : INFO : Card number entered
+2026-05-20 13:34:24,843 : INFO : Expiry date entered
+2026-05-20 13:34:24,984 : INFO : CVV entered
+2026-05-20 13:34:25,220 : INFO : Securely Pay button clicked
+2026-05-20 13:34:25,393 : INFO : Screenshot saved at: reports/screenshots/invalid_card_validation_20260520_133425.png
+2026-05-20 13:34:25,485 : INFO : Invalid card validation negative test passed
+2026-05-20 13:34:39,367 : INFO : Popup not present
+2026-05-20 13:34:40,262 : INFO : Login button clicked
+2026-05-20 13:34:41,236 : INFO : Mobile number entered
+2026-05-20 13:34:41,548 : INFO : Continue button clicked
+2026-05-20 13:34:57,502 : INFO : Hotels menu clicked
+2026-05-20 13:34:59,006 : INFO : Jaipur destination selected
+2026-05-20 13:34:59,334 : INFO : Checkin selected
+2026-05-20 13:34:59,660 : INFO : Checkin date selected
+2026-05-20 13:35:00,022 : INFO : Checkout date selected
+2026-05-20 13:35:00,402 : INFO : Search button clicked
+2026-05-20 13:35:03,275 : INFO : Hotel popup closed successfully
+2026-05-20 13:35:03,653 : INFO : Book now button clicked
+2026-05-20 13:35:03,735 : INFO : Switched to booking window
+2026-05-20 13:35:08,216 : INFO : Reserve room button clicked
+2026-05-20 13:35:09,805 : INFO : Guest details entered successfully
+2026-05-20 13:35:09,974 : INFO : Screenshot saved at: reports/screenshots/empty_guest_details_20260520_133509.png
+2026-05-20 13:35:10,080 : INFO : Empty guest details negative test passed

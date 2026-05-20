@@ -1,0 +1,33 @@
+2026-05-20 13:22:16,855 : INFO : Payment option selected successfully
+2026-05-20 13:22:20,172 : INFO : Opening IXIGO Website
+2026-05-20 13:22:28,544 : INFO : Popup not present
+2026-05-20 13:22:29,098 : INFO : Screenshot saved at: reports/screenshots/homepage_20260520_132228.png
+2026-05-20 13:22:29,432 : INFO : Login button clicked
+2026-05-20 13:22:29,434 : INFO : Login button clicked
+2026-05-20 13:22:30,939 : INFO : Mobile number entered
+2026-05-20 13:22:31,374 : INFO : Continue button clicked
+2026-05-20 13:22:46,518 : INFO : Screenshot saved at: reports/screenshots/login_success_20260520_132246.png
+2026-05-20 13:22:47,333 : INFO : Hotels menu clicked
+2026-05-20 13:22:47,802 : INFO : Screenshot saved at: reports/screenshots/hotels_page_20260520_132247.png
+2026-05-20 13:22:49,914 : INFO : Jaipur destination selected
+2026-05-20 13:22:50,625 : INFO : Checkin selected
+2026-05-20 13:22:51,243 : INFO : Checkin date selected
+2026-05-20 13:22:51,862 : INFO : Checkout date selected
+2026-05-20 13:22:52,492 : INFO : Rooms and guests selected
+2026-05-20 13:22:52,852 : INFO : Search button clicked
+2026-05-20 13:22:53,590 : INFO : Screenshot saved at: reports/screenshots/search_results_20260520_132252.png
+2026-05-20 13:22:55,532 : INFO : Hotel popup closed successfully
+2026-05-20 13:22:58,838 : INFO : Free breakfast filter selected
+2026-05-20 13:22:59,182 : INFO : Screenshot saved at: reports/screenshots/filters_applied_20260520_132258.png
+2026-05-20 13:23:00,141 : INFO : Book now button clicked
+2026-05-20 13:23:00,259 : INFO : Switched to booking window
+2026-05-20 13:23:01,385 : INFO : Screenshot saved at: reports/screenshots/booking_page_20260520_132300.png
+2026-05-20 13:23:03,446 : INFO : Reserve room button clicked
+2026-05-20 13:23:06,027 : INFO : Guest details entered successfully
+2026-05-20 13:23:06,252 : INFO : Screenshot saved at: reports/screenshots/guest_details_20260520_132306.png
+2026-05-20 13:23:06,555 : INFO : Pay now button clicked
+2026-05-20 13:23:10,262 : INFO : Card number entered
+2026-05-20 13:23:10,505 : INFO : Expiry date entered
+2026-05-20 13:23:10,816 : INFO : CVV entered
+2026-05-20 13:23:11,153 : INFO : Screenshot saved at: reports/screenshots/payment_page_20260520_132310.png
+2026-05-20 13:23:11,160 : INFO : Booking completed successfully

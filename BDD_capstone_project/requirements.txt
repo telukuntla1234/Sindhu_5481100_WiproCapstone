@@ -1,0 +1,8 @@
+selenium
+behave
+webdriver-manager
+allure-behave
+allure-python-commons
+configparser
+gherkin-official
+
