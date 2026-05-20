@@ -1,21 +1,41 @@
 import os
-
 from datetime import datetime
+
+import allure
+
+from utils.logger import LogGen
+
+logger = LogGen.loggen()
 
 
 class ScreenshotUtil:
 
     @staticmethod
-    def capture_screenshot(driver, name):
+    def capture_screenshot(driver, screenshot_name="screenshot"):
 
-        if not os.path.exists("screenshots"):
+        screenshot_dir = "reports/screenshots"
 
-            os.makedirs("screenshots")
+        if not os.path.exists(screenshot_dir):
+            os.makedirs(screenshot_dir)
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        path = f"screenshots/{name}_{timestamp}.png"
+        clean_name = screenshot_name.replace(" ", "_")
 
-        driver.save_screenshot(path)
+        screenshot_path = (
+            f"{screenshot_dir}/"
+            f"{clean_name}_{timestamp}.png"
+        )
 
-        print(f"Screenshot saved: {path}")
+        driver.save_screenshot(screenshot_path)
+
+        logger.info(f"Screenshot saved at: {screenshot_path}")
+
+        # attach screenshot to allure report
+        allure.attach.file(
+            screenshot_path,
+            name=clean_name,
+            attachment_type=allure.attachment_type.PNG
+        )
+
+        return screenshot_path

@@ -1,5 +1,6 @@
 selenium
-pytest
-pytest-html
 webdriver-manager
+pytest
+pytest-order
+pytest-html
 allure-pytest

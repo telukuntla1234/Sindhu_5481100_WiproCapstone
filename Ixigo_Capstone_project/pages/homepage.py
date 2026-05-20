@@ -49,7 +49,7 @@ class HomePage:
 
         try:
 
-            popup = WebDriverWait(self.driver, 10).until(
+            popup = WebDriverWait(self.driver, 8).until(
                 EC.presence_of_element_located(
                     self.POPUP_CLOSE
                 )
@@ -71,8 +71,6 @@ class HomePage:
             10
         ).click().perform()
 
-        time.sleep(2)
-
     def click_login(self):
 
         login_btn = WebDriverWait(self.driver, 20).until(
@@ -87,7 +85,7 @@ class HomePage:
 
     def enter_mobile_number(self, mobile):
 
-        mobile_field = WebDriverWait(self.driver, 30).until(
+        mobile_field = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(
                 self.MOBILE_NUMBER
             )
@@ -97,7 +95,7 @@ class HomePage:
 
         logger.info("Mobile number entered")
 
-        continue_btn = WebDriverWait(self.driver, 30).until(
+        continue_btn = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(
                 self.CONTINUE_BUTTON
             )

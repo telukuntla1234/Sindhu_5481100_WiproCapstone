@@ -1,3 +1,4 @@
+import os
 import time
 
 import pytest
@@ -71,7 +72,7 @@ def logged_in_driver(driver):
 
     print("Enter OTP manually")
 
-    time.sleep(20)
+    time.sleep(15)
 
     print("Login successful")
 
@@ -98,3 +99,15 @@ def pytest_runtest_makereport(item, call):
             driver,
             "failed_test"
         )
+
+# Allure test
+def pytest_unconfigure(config):
+    """
+    This built-in Pytest hook runs exactly once after
+    all tests have finished and the browsers are closed.
+    """
+    print("-------TESTS COMPLETE! GENERATING AND OPENING ALLURE REPORT--------")
+    print("-------------------------------------------------------\n")
+
+    # Automatically triggers the terminal command to open the report
+    os.system("allure serve reports/allure-results")

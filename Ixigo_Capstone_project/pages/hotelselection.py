@@ -23,10 +23,10 @@ class HotelSelection:
         "//div[@data-testid='bpg-home-modal-close']"
     )
 
-    FREE_CANCELLATION = (
-        By.XPATH,
-        "//p[text()='Free Cancellation']/ancestor::div[@role='listitem']"
-    )
+    # FREE_CANCELLATION = (
+    #     By.XPATH,
+    #     "//p[text()='Free Cancellation']/ancestor::div[@role='listitem']"
+    # )
 
     FREE_BREAKFAST = (
         By.XPATH,
@@ -43,7 +43,7 @@ class HotelSelection:
 
         try:
 
-            popup = WebDriverWait(self.driver, 10).until(
+            popup = WebDriverWait(self.driver, 30).until(
                 EC.element_to_be_clickable(
                     self.CLOSE_POPUP
                 )
@@ -57,27 +57,22 @@ class HotelSelection:
 
             logger.warning("Hotel popup not displayed")
 
-        time.sleep(2)
 
-    def free_cancellation(self):
-
-        self.driver.execute_script(
-            "window.scrollBy(0, 500)"
-        )
-
-        time.sleep(2)
-
-        free = WebDriverWait(self.driver, 30).until(
-            EC.element_to_be_clickable(
-                self.FREE_CANCELLATION
-            )
-        )
-
-        free.click()
-
-        logger.info("Free cancellation filter selected")
-
-        time.sleep(2)
+    # def free_cancellation(self):
+    #
+    #     self.driver.execute_script(
+    #         "window.scrollBy(0, 500)"
+    #     )
+    #
+    #     free = WebDriverWait(self.driver, 20).until(
+    #         EC.element_to_be_clickable(
+    #             self.FREE_CANCELLATION
+    #         )
+    #     )
+    #
+    #     free.click()
+    #
+    #     logger.info("Free cancellation filter selected")
 
     def free_breakfast(self):
 
@@ -85,9 +80,7 @@ class HotelSelection:
             "window.scrollBy(0, 600)"
         )
 
-        time.sleep(2)
-
-        free_bf = WebDriverWait(self.driver, 20).until(
+        free_bf = WebDriverWait(self.driver, 30).until(
             EC.element_to_be_clickable(
                 self.FREE_BREAKFAST
             )
@@ -96,8 +89,6 @@ class HotelSelection:
         free_bf.click()
 
         logger.info("Free breakfast filter selected")
-
-        time.sleep(2)
 
     def click_book_now(self):
         book_now = WebDriverWait(self.driver, 20).until(
@@ -108,11 +99,9 @@ class HotelSelection:
 
         book_now.click()
 
-        time.sleep(1)
-
         logger.info("Book now button clicked")
 
-        time.sleep(2)
+
 
         self.driver.switch_to.window(
             self.driver.window_handles[-1]

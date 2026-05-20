@@ -46,7 +46,7 @@ class BookingPage:
 
     def reserve_room(self):
 
-        reserve = WebDriverWait(self.driver, 30).until(
+        reserve = WebDriverWait(self.driver, 20).until(
             EC.presence_of_element_located(
                 self.RESERVE_ROOM
             )
@@ -54,13 +54,11 @@ class BookingPage:
 
         reserve.click()
 
-        time.sleep(3)
-
         logger.info("Reserve room button clicked")
 
     def enter_guest_details(self, fname, lname, email):
 
-        first_name = WebDriverWait(self.driver, 30).until(
+        first_name = WebDriverWait(self.driver, 20).until(
             EC.presence_of_element_located(
                 self.FIRST_NAME
             )
@@ -96,9 +94,7 @@ class BookingPage:
 
     def click_pay_now(self):
 
-        time.sleep(3)
-
-        pay = WebDriverWait(self.driver, 30).until(
+        pay = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(
                 self.PAY_NOW
             )

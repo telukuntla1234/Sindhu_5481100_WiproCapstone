@@ -29,22 +29,22 @@ class HotelPage:
 
     CHECKIN_BOX = (
         By.XPATH,
-        "//button[.//abbr[@aria-label='June 16, 2026']]"
+        "//input[@data-testid='checkin-input']"
     )
 
     CHECKIN_DATE = (
         By.XPATH,
-        "//button[.//abbr[@aria-label='June 18, 2026']]"
+        "//button[.//abbr[@aria-label='June 16, 2026']]"
     )
-
-    CHECKOUT_BOX = (
-        By.XPATH,
-        "//input[@data-testid='checkout-input']"
-    )
+    #
+    # CHECKOUT_BOX = (
+    #     By.XPATH,
+    #     "//input[@data-testid='checkout-input']"
+    # )
 
     CHECKOUT_DATE = (
         By.XPATH,
-        "//abbr[@aria-label='June 18, 2026']"
+        "//button[.//abbr[@aria-label='June 18, 2026']]"
     )
 
     ROOM_GUESTS = (
@@ -73,8 +73,6 @@ class HotelPage:
         box.click()
 
         box.send_keys(destination)
-
-        time.sleep(3)
 
         option = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(
@@ -110,17 +108,17 @@ class HotelPage:
 
         logger.info("Checkin date selected")
 
-    def select_checkout(self):
-
-        chck_out = WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable(
-                self.CHECKOUT_BOX
-            )
-        )
-
-        chck_out.click()
-
-        logger.info("Checkout selected")
+    # def select_checkout(self):
+    #
+    #     chck_out = WebDriverWait(self.driver, 20).until(
+    #         EC.element_to_be_clickable(
+    #             self.CHECKOUT_BOX
+    #         )
+    #     )
+    #
+    #     chck_out.click()
+    #
+    #     logger.info("Checkout selected")
 
     def select_checkout_date(self):
 

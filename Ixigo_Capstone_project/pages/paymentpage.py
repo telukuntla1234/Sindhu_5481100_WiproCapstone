@@ -48,9 +48,7 @@ class PaymentPage:
 
     def select_payment(self):
 
-        time.sleep(5)
-
-        payment = WebDriverWait(self.driver, 30).until(
+        payment = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(
                 self.PAYMENT_OPTION
             )
@@ -64,7 +62,7 @@ class PaymentPage:
             expiry,
             cvv
     ):
-        card = WebDriverWait(self.driver, 30).until(
+        card = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(
                 self.CARD_NUMBER
             )

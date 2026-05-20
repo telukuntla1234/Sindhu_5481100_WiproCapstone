@@ -1,0 +1,4 @@
+[32mINFO    [0m root:homepage.py:67 Popup not present
+[32mINFO    [0m root:homepage.py:84 Login button clicked
+[32mINFO    [0m root:homepage.py:96 Mobile number entered
+[32mINFO    [0m root:homepage.py:106 Continue button clicked

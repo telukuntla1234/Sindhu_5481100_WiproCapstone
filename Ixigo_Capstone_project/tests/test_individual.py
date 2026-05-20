@@ -1,7 +1,6 @@
 import time
 
 import pytest
-import allure
 
 from pages.homepage import HomePage
 from pages.hotelpage import HotelPage
@@ -32,8 +31,6 @@ test_data = CSVReader.read_data(
 
 @pytest.mark.order(1)
 
-@allure.title("Hotel Search Test")
-
 def test_hotel_search(logged_in_driver, data):
 
     driver = logged_in_driver
@@ -46,8 +43,6 @@ def test_hotel_search(logged_in_driver, data):
     # Action
     home.click_hotels()
 
-    time.sleep(3)
-
     hotel.select_destination(
         data["destination"]
     )
@@ -56,7 +51,7 @@ def test_hotel_search(logged_in_driver, data):
 
     hotel.select_checkin_date()
 
-    hotel.select_checkout()
+    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -67,12 +62,6 @@ def test_hotel_search(logged_in_driver, data):
     ScreenshotUtil.capture_screenshot(
         driver,
         "hotel_search"
-    )
-
-    allure.attach(
-        driver.get_screenshot_as_png(),
-        name="Hotel Search",
-        attachment_type=allure.attachment_type.PNG
     )
 
     # Assert
@@ -92,8 +81,6 @@ def test_hotel_search(logged_in_driver, data):
 
 @pytest.mark.order(2)
 
-@allure.title("Hotel Filters Test")
-
 def test_hotel_filters(logged_in_driver, data):
 
     driver = logged_in_driver
@@ -108,7 +95,7 @@ def test_hotel_filters(logged_in_driver, data):
     # Action
     home.click_hotels()
 
-    time.sleep(3)
+
 
     hotel.select_destination(
         data["destination"]
@@ -118,7 +105,7 @@ def test_hotel_filters(logged_in_driver, data):
 
     hotel.select_checkin_date()
 
-    hotel.select_checkout()
+    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -126,7 +113,7 @@ def test_hotel_filters(logged_in_driver, data):
 
     hotelselection.close_popup()
 
-    hotelselection.free_cancellation()
+    # hotelselection.free_cancellation()
 
     time.sleep(2)
 
@@ -135,12 +122,6 @@ def test_hotel_filters(logged_in_driver, data):
     ScreenshotUtil.capture_screenshot(
         driver,
         "hotel_filters"
-    )
-
-    allure.attach(
-        driver.get_screenshot_as_png(),
-        name="Hotel Filters",
-        attachment_type=allure.attachment_type.PNG
     )
 
     # Assert
@@ -160,8 +141,6 @@ def test_hotel_filters(logged_in_driver, data):
 
 @pytest.mark.order(3)
 
-@allure.title("Guest Details Test")
-
 def test_guest_details(logged_in_driver, data):
 
     driver = logged_in_driver
@@ -178,7 +157,6 @@ def test_guest_details(logged_in_driver, data):
     # Action
     home.click_hotels()
 
-    time.sleep(3)
 
     hotel.select_destination(
         data["destination"]
@@ -188,7 +166,7 @@ def test_guest_details(logged_in_driver, data):
 
     hotel.select_checkin_date()
 
-    hotel.select_checkout()
+    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -197,8 +175,6 @@ def test_guest_details(logged_in_driver, data):
     hotelselection.close_popup()
 
     hotelselection.click_book_now()
-
-    time.sleep(3)
 
     booking.reserve_room()
 
@@ -211,12 +187,6 @@ def test_guest_details(logged_in_driver, data):
     ScreenshotUtil.capture_screenshot(
         driver,
         "guest_details"
-    )
-
-    allure.attach(
-        driver.get_screenshot_as_png(),
-        name="Guest Details",
-        attachment_type=allure.attachment_type.PNG
     )
 
     # Assert
@@ -236,8 +206,6 @@ def test_guest_details(logged_in_driver, data):
 
 @pytest.mark.order(4)
 
-@allure.title("Payment Test")
-
 def test_payment(logged_in_driver, data):
 
     driver = logged_in_driver
@@ -256,7 +224,6 @@ def test_payment(logged_in_driver, data):
     # Action
     home.click_hotels()
 
-    time.sleep(3)
 
     hotel.select_destination(
         data["destination"]
@@ -266,7 +233,7 @@ def test_payment(logged_in_driver, data):
 
     hotel.select_checkin_date()
 
-    hotel.select_checkout()
+    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -276,7 +243,6 @@ def test_payment(logged_in_driver, data):
 
     hotelselection.click_book_now()
 
-    time.sleep(3)
 
     booking.reserve_room()
 
@@ -301,12 +267,6 @@ def test_payment(logged_in_driver, data):
         "payment_test"
     )
 
-    allure.attach(
-        driver.get_screenshot_as_png(),
-        name="Payment Test",
-        attachment_type=allure.attachment_type.PNG
-    )
-
     # Assert
     assert True
 
@@ -323,8 +283,6 @@ def test_payment(logged_in_driver, data):
 )
 
 @pytest.mark.order(5)
-
-@allure.title("Invalid Card Number Validation Test")
 
 def test_invalid_card_number_validation(
         logged_in_driver,
@@ -347,8 +305,6 @@ def test_invalid_card_number_validation(
     # Action
     home.click_hotels()
 
-    time.sleep(3)
-
     hotel.select_destination(
         data["destination"]
     )
@@ -357,7 +313,7 @@ def test_invalid_card_number_validation(
 
     hotel.select_checkin_date()
 
-    hotel.select_checkout()
+    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -366,8 +322,6 @@ def test_invalid_card_number_validation(
     hotelselection.close_popup()
 
     hotelselection.click_book_now()
-
-    time.sleep(3)
 
     booking.reserve_room()
 
@@ -396,12 +350,6 @@ def test_invalid_card_number_validation(
         "invalid_card_validation"
     )
 
-    allure.attach(
-        driver.get_screenshot_as_png(),
-        name="Invalid Card Validation",
-        attachment_type=allure.attachment_type.PNG
-    )
-
     # Assert - Validate Error Message
     error_message = driver.find_element(
         *payment.INVALID_CARD_ERROR
@@ -412,6 +360,8 @@ def test_invalid_card_number_validation(
     logger.info(
         "Invalid card validation negative test passed"
     )
+
+
 # ---------------------------------------------------
 # NEGATIVE TEST 2 - EMPTY GUEST DETAILS
 # ---------------------------------------------------
@@ -422,8 +372,6 @@ def test_invalid_card_number_validation(
 )
 
 @pytest.mark.order(6)
-
-@allure.title("Empty Guest Details Negative Test")
 
 def test_empty_guest_details(logged_in_driver, data):
 
@@ -441,8 +389,6 @@ def test_empty_guest_details(logged_in_driver, data):
     # Action
     home.click_hotels()
 
-    time.sleep(3)
-
     hotel.select_destination(
         data["destination"]
     )
@@ -451,7 +397,7 @@ def test_empty_guest_details(logged_in_driver, data):
 
     hotel.select_checkin_date()
 
-    hotel.select_checkout()
+    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -460,8 +406,6 @@ def test_empty_guest_details(logged_in_driver, data):
     hotelselection.close_popup()
 
     hotelselection.click_book_now()
-
-    time.sleep(3)
 
     booking.reserve_room()
 
@@ -474,12 +418,6 @@ def test_empty_guest_details(logged_in_driver, data):
     ScreenshotUtil.capture_screenshot(
         driver,
         "empty_guest_details"
-    )
-
-    allure.attach(
-        driver.get_screenshot_as_png(),
-        name="Empty Guest Details",
-        attachment_type=allure.attachment_type.PNG
     )
 
     # Assert
