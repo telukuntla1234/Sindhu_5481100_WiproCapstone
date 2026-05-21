@@ -40,3 +40,10 @@ class ConfigReader:
     def get_manual_otp_wait():
         return ConfigReader.config.getint("DEFAULT", "manual_otp_wait")
 
+    @staticmethod
+    def get_auto_generate_allure():
+        return ConfigReader.config.getboolean("DEFAULT", "auto_generate_allure")
+
+    @staticmethod
+    def get_auto_open_allure():
+        return ConfigReader.config.getboolean("DEFAULT", "auto_open_allure")

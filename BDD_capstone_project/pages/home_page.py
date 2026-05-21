@@ -1,5 +1,3 @@
-import time
-
 from locators.home_locators import HomeLocators
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import ActionChains
@@ -78,12 +76,20 @@ class HomePage:
     def wait_for_manual_otp_entry(self):
         wait_time = ConfigReader.get_manual_otp_wait()
         print(f"Enter OTP manually within {wait_time} seconds")
-        logger.info(f"Waiting {wait_time} seconds for manual OTP entry")
-        time.sleep(wait_time)
+        logger.info(f"Waiting up to {wait_time} seconds for manual OTP entry")
+        try:
+            WebDriverWait(self.driver, wait_time).until(
+                lambda driver: not self.is_login_overlay_open()
+            )
+            logger.info("OTP accepted and login overlay closed")
+            return True
+        except TimeoutException:
+            logger.error("OTP was not completed before wait time ended")
+            return False
 
     def wait_for_login_overlay_to_close(self):
         try:
-            WebDriverWait(self.driver, 10).until(
+            WebDriverWait(self.driver, 3).until(
                 lambda driver: not self.is_login_overlay_open()
             )
             logger.info("Login overlay closed after manual OTP entry")

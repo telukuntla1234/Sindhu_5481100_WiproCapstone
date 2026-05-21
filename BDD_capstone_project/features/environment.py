@@ -1,3 +1,7 @@
+import os
+import shutil
+import subprocess
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
@@ -62,3 +66,41 @@ def after_scenario(context, scenario):
     context.driver.quit()
     logger.info("Browser closed successfully")
     logger.info("========================================")
+
+
+def after_all(context):
+    if not ConfigReader.get_auto_generate_allure():
+        return
+
+    allure_command = shutil.which("allure")
+    if not allure_command:
+        logger.warning("Allure command not found. Install Allure CLI to generate HTML reports automatically.")
+        return
+
+    logger.info("Tests completed. Generating Allure report.")
+    os.makedirs("reports/allure-report", exist_ok=True)
+    generate_result = subprocess.run(
+        [
+            allure_command,
+            "generate",
+            "reports/allure-results",
+            "-o",
+            "reports/allure-report",
+            "--clean",
+        ],
+        shell=False,
+        check=False,
+    )
+
+    if generate_result.returncode != 0:
+        logger.error("Allure report generation failed.")
+        return
+
+    logger.info("Allure report generated successfully.")
+
+    if ConfigReader.get_auto_open_allure():
+        logger.info("Opening Allure report.")
+        subprocess.Popen(
+            [allure_command, "open", "reports/allure-report"],
+            shell=False,
+        )

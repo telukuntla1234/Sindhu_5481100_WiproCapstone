@@ -7,7 +7,7 @@ from utils.screenshot_util import ScreenshotUtil
 
 logger = LogGen.loggen()
 
-# noinspection PyUnresolvedReferences
+
 @given("User launches Ixigo application")
 def step_launch_ixigo(context):
     context.home_page = HomePage(context.driver)
@@ -50,7 +50,7 @@ def step_submit_mobile_for_otp(context):
 
 @when("User enters OTP manually")
 def step_manual_otp(context):
-    context.home_page.wait_for_manual_otp_entry()
+    context.otp_completed = context.home_page.wait_for_manual_otp_entry()
     ScreenshotUtil.capture_screenshot(context.driver, "manual_otp_entry")
 
 
@@ -68,7 +68,7 @@ def step_verify_otp_screen(context):
 
 @then("Login flow should continue after manual OTP entry")
 def step_verify_login_after_manual_otp(context):
-    assert context.home_page.wait_for_login_overlay_to_close(), (
+    assert context.otp_completed or context.home_page.wait_for_login_overlay_to_close(), (
         "Login popup is still open. Please enter the OTP manually before the wait time ends."
     )
     assert context.driver.current_url.startswith("https://www.ixigo.com"), "Ixigo page is not active after OTP wait"
