@@ -1,5 +1,5 @@
 from locators.home_locators import HomeLocators
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import StaleElementReferenceException, TimeoutException
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -78,7 +78,11 @@ class HomePage:
         print(f"Enter OTP manually within {wait_time} seconds")
         logger.info(f"Waiting up to {wait_time} seconds for manual OTP entry")
         try:
-            WebDriverWait(self.driver, wait_time).until(
+            WebDriverWait(
+                self.driver,
+                wait_time,
+                ignored_exceptions=(StaleElementReferenceException,),
+            ).until(
                 lambda driver: not self.is_login_overlay_open()
             )
             logger.info("OTP accepted and login overlay closed")
@@ -89,7 +93,11 @@ class HomePage:
 
     def wait_for_login_overlay_to_close(self):
         try:
-            WebDriverWait(self.driver, 3).until(
+            WebDriverWait(
+                self.driver,
+                3,
+                ignored_exceptions=(StaleElementReferenceException,),
+            ).until(
                 lambda driver: not self.is_login_overlay_open()
             )
             logger.info("Login overlay closed after manual OTP entry")
@@ -104,7 +112,11 @@ class HomePage:
             + self.driver.find_elements(*HomeLocators.OTP_INPUT)
             + self.driver.find_elements(*HomeLocators.LOGIN_ADVANTAGES_IMAGE)
         )
-        return any(element.is_displayed() for element in login_elements)
+        try:
+            return any(element.is_displayed() for element in login_elements)
+        except StaleElementReferenceException:
+            logger.info("Login overlay changed while checking display state; retrying wait")
+            return True
 
     def is_mobile_field_displayed(self):
         return len(self.driver.find_elements(*HomeLocators.MOBILE_NUMBER)) > 0

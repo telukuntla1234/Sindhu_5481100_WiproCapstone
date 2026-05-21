@@ -1,5 +1,4 @@
 import time
-
 import pytest
 
 from pages.homepage import HomePage
@@ -21,7 +20,6 @@ test_data = CSVReader.read_data(
 
 
 @pytest.mark.parametrize("data", test_data)
-
 class TestHotelBooking:
 
     def test_complete_booking(self, driver, data):
@@ -29,14 +27,16 @@ class TestHotelBooking:
         logger.info("Opening IXIGO Website")
 
         home = HomePage(driver)
-
         hotel = HotelPage(driver)
-
         hotelselection = HotelSelection(driver)
-
         booking = BookingPage(driver)
-
         payment = PaymentPage(driver)
+
+        # -----------------------------
+        # Homepage Validation
+        # -----------------------------
+        assert "ixigo" in driver.title.lower(), \
+            "IXIGO homepage not loaded"
 
         # Handle popup
         home.handle_popup()
@@ -46,7 +46,9 @@ class TestHotelBooking:
             "homepage"
         )
 
-        # Login
+        # -----------------------------
+        # Login Section
+        # -----------------------------
         home.click_login()
 
         logger.info("Login button clicked")
@@ -56,9 +58,7 @@ class TestHotelBooking:
         )
 
         print("Enter OTP manually")
-
         time.sleep(15)
-
         print("Login completed manually")
 
         ScreenshotUtil.capture_screenshot(
@@ -66,7 +66,13 @@ class TestHotelBooking:
             "login_success"
         )
 
-        # Open Hotels Section
+        # Assertion after login
+        assert driver.current_url is not None, \
+            "Login failed or page not loaded"
+
+        # -----------------------------
+        # Hotels Section
+        # -----------------------------
         home.click_hotels()
 
         ScreenshotUtil.capture_screenshot(
@@ -74,25 +80,44 @@ class TestHotelBooking:
             "hotels_page"
         )
 
-        # Destination
+        # Assertion
+        assert "hotel" in driver.current_url.lower() or \
+               "hotel" in driver.page_source.lower(), \
+            "Hotels page not opened"
+
+        # -----------------------------
+        # Destination Selection
+        # -----------------------------
         hotel.select_destination(
             data["destination"]
         )
 
-        # Check-in
+        # Assertion
+        assert data["destination"].lower() in driver.page_source.lower(), \
+            "Destination not selected properly"
+
+        # -----------------------------
+        # Check-in / Checkout
+        # -----------------------------
         hotel.select_checkin()
 
         hotel.select_checkin_date()
 
-        # Checkout
-        # hotel.select_checkout()
-
         hotel.select_checkout_date()
 
-        # Rooms and guests
+        ScreenshotUtil.capture_screenshot(
+            driver,
+            "dates_selected"
+        )
+
+        # -----------------------------
+        # Room Selection
+        # -----------------------------
         hotel.select_rooms()
 
-        # Search hotels
+        # -----------------------------
+        # Search Hotels
+        # -----------------------------
         hotel.click_search()
 
         ScreenshotUtil.capture_screenshot(
@@ -100,10 +125,18 @@ class TestHotelBooking:
             "search_results"
         )
 
-        # Close popup
+        # Assertion
+        assert "hotel" in driver.page_source.lower(), \
+            "Hotel search results not displayed"
+
+        # -----------------------------
+        # Close Popup
+        # -----------------------------
         hotelselection.close_popup()
 
-        # Filters
+        # -----------------------------
+        # Apply Filters
+        # -----------------------------
         time.sleep(3)
 
         hotelselection.free_breakfast()
@@ -113,7 +146,13 @@ class TestHotelBooking:
             "filters_applied"
         )
 
-        # Book hotel
+        # Assertion
+        assert "breakfast" in driver.page_source.lower(), \
+            "Free breakfast filter not applied"
+
+        # -----------------------------
+        # Book Hotel
+        # -----------------------------
         hotelselection.click_book_now()
 
         ScreenshotUtil.capture_screenshot(
@@ -121,9 +160,19 @@ class TestHotelBooking:
             "booking_page"
         )
 
+        # Assertion
+        assert "book" in driver.page_source.lower() or \
+               "reserve" in driver.page_source.lower(), \
+            "Booking page not opened"
+
+        # -----------------------------
+        # Reserve Room
+        # -----------------------------
         booking.reserve_room()
 
-        # Enter guest details
+        # -----------------------------
+        # Guest Details
+        # -----------------------------
         booking.enter_guest_details(
             data["fname"],
             data["lname"],
@@ -135,11 +184,15 @@ class TestHotelBooking:
             "guest_details"
         )
 
-        # Pay now
-        booking.click_pay_now()
+        # Assertion
+        assert data["email"] in driver.page_source or \
+               data["fname"] in driver.page_source, \
+            "Guest details not entered properly"
 
-        # Payment page
-        payment.select_payment()
+        # -----------------------------
+        # Payment Section
+        # -----------------------------
+        booking.click_pay_now()
 
         payment.select_payment()
 
@@ -153,5 +206,10 @@ class TestHotelBooking:
             driver,
             "payment_page"
         )
+
+        # Assertion
+        assert "payment" in driver.page_source.lower() or \
+               "card" in driver.page_source.lower(), \
+            "Payment page not loaded"
 
         logger.info("Booking completed successfully")

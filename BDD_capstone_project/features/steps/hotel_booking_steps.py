@@ -102,43 +102,89 @@ def step_click_securely_pay(context):
     context.payment_page.click_securely_pay()
 
 
+
 @then("Hotels search results should be displayed")
 def step_verify_hotels_results(context):
+
     WaitUtils.wait_for_url_contains(context.driver, "hotels")
-    assert "hotels" in context.driver.current_url.lower()
+
+    current_url = context.driver.current_url.lower()
+
+    assert "hotels" in current_url, \
+        f"Hotel search results page not displayed. Current URL: {current_url}"
+
     ScreenshotUtil.capture_screenshot(context.driver, "search_results")
 
 
 @then("Free Breakfast filter should be applied")
 def step_verify_free_breakfast(context):
-    assert "hotels" in context.driver.current_url.lower(), "Hotel results page is not active after applying filter"
+
+    current_url = context.driver.current_url.lower()
+
+    assert "hotels" in current_url, \
+        f"Hotel results page is not active after applying filter. Current URL: {current_url}"
+
     ScreenshotUtil.capture_screenshot(context.driver, "filters_applied")
+
 
 
 @then("Guest details should be filled on booking page")
 def step_verify_guest_details(context):
+
     values = context.booking_page.get_guest_field_values()
-    assert values["first_name"] == context.test_data["fname"]
-    assert values["last_name"] == context.test_data["lname"]
-    assert values["email"] == context.test_data["email"]
+
+    assert values["first_name"] == context.test_data["fname"], \
+        f"Expected first name {context.test_data['fname']} but got {values['first_name']}"
+
+    assert values["last_name"] == context.test_data["lname"], \
+        f"Expected last name {context.test_data['lname']} but got {values['last_name']}"
+
+    assert values["email"] == context.test_data["email"], \
+        f"Expected email {context.test_data['email']} but got {values['email']}"
 
 
 @then("Payment card details should be accepted for validation")
 def step_verify_payment_details(context):
-    assert context.payment_page.get_card_number_value()
-    ScreenshotUtil.capture_screenshot(context.driver, "payment_details_entered")
 
+    card_number = context.payment_page.get_card_number_value()
+
+    assert card_number != "", \
+        "Card number field is empty"
+
+    assert len(card_number) >= 12, \
+        f"Invalid card number entered: {card_number}"
+
+    ScreenshotUtil.capture_screenshot(
+        context.driver,
+        "payment_details_entered"
+    )
 
 @then("Invalid card number error should be displayed")
 def step_verify_invalid_card_error(context):
-    error_message = context.payment_page.get_invalid_card_error()
-    assert "valid card number" in error_message.lower()
-    ScreenshotUtil.capture_screenshot(context.driver, "invalid_card_validation")
 
+    error_message = context.payment_page.get_invalid_card_error()
+
+    assert error_message != "", \
+        "No error message displayed for invalid card"
+
+    assert "valid card number" in error_message.lower(), \
+        f"Unexpected error message displayed: {error_message}"
+
+    ScreenshotUtil.capture_screenshot(
+        context.driver,
+        "invalid_card_validation"
+    )
 
 @then("Guest details fields should remain empty")
 def step_verify_empty_guest_details(context):
+
     values = context.booking_page.get_guest_field_values()
-    assert values["first_name"] == ""
-    assert values["last_name"] == ""
-    assert values["email"] == ""
+
+    assert values["first_name"] == "", \
+        f"Expected empty first name field but got: {values['first_name']}"
+
+    assert values["last_name"] == "", \
+        f"Expected empty last name field but got: {values['last_name']}"
+
+    assert values["email"] == "", \
+        f"Expected empty email field but got: {values['email']}"

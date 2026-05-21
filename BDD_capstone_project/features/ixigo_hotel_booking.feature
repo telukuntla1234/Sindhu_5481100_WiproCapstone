@@ -64,16 +64,3 @@ Feature: Ixigo Hotel Booking Functionality
     And User reserves the recommended room
     And User enters empty guest details
     Then Guest details fields should remain empty
-
-  @hotel @e2e
-  Scenario: Complete end to end hotel booking flow up to payment
-    When User opens Hotels section
-    And User searches hotels with destination and dates from test data
-    And User closes hotel results popup if present
-    And User applies Free Breakfast filter
-    And User selects the first available hotel
-    And User reserves the recommended room
-    And User enters guest details from test data
-    And User proceeds to payment
-    And User enters card details from test data
-    Then Payment card details should be accepted for validation

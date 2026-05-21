@@ -19,7 +19,6 @@ test_data = CSVReader.read_data(
     "testdata/guest_data.csv"
 )
 
-
 # ---------------------------------------------------
 # POSITIVE TEST 1 - HOTEL SEARCH
 # ---------------------------------------------------
@@ -37,11 +36,14 @@ def test_hotel_search(logged_in_driver, data):
 
     # Arrange
     home = HomePage(driver)
-
     hotel = HotelPage(driver)
 
     # Action
     home.click_hotels()
+
+    # Assert Hotels page opened
+    assert "hotel" in driver.current_url.lower(), \
+        "Hotels page did not open"
 
     hotel.select_destination(
         data["destination"]
@@ -50,8 +52,6 @@ def test_hotel_search(logged_in_driver, data):
     hotel.select_checkin()
 
     hotel.select_checkin_date()
-
-    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -64,8 +64,11 @@ def test_hotel_search(logged_in_driver, data):
         "hotel_search"
     )
 
-    # Assert
-    assert "hotels" in driver.current_url.lower()
+    # Assert Search Results Loaded
+    assert (
+        data["destination"].lower()
+        in driver.page_source.lower()
+    ), "Search results not displayed properly"
 
     logger.info("Hotel search test passed")
 
@@ -87,15 +90,11 @@ def test_hotel_filters(logged_in_driver, data):
 
     # Arrange
     home = HomePage(driver)
-
     hotel = HotelPage(driver)
-
     hotelselection = HotelSelection(driver)
 
     # Action
     home.click_hotels()
-
-
 
     hotel.select_destination(
         data["destination"]
@@ -105,15 +104,11 @@ def test_hotel_filters(logged_in_driver, data):
 
     hotel.select_checkin_date()
 
-    # hotel.select_checkout()
-
     hotel.select_checkout_date()
 
     hotel.click_search()
 
     hotelselection.close_popup()
-
-    # hotelselection.free_cancellation()
 
     time.sleep(2)
 
@@ -124,8 +119,13 @@ def test_hotel_filters(logged_in_driver, data):
         "hotel_filters"
     )
 
-    # Assert
-    assert True
+    # Assert Filter Applied
+    filter_text = driver.page_source.lower()
+
+    assert (
+        "breakfast" in filter_text
+        or "free breakfast" in filter_text
+    ), "Free breakfast filter not applied"
 
     logger.info("Hotel filters test passed")
 
@@ -147,16 +147,12 @@ def test_guest_details(logged_in_driver, data):
 
     # Arrange
     home = HomePage(driver)
-
     hotel = HotelPage(driver)
-
     hotelselection = HotelSelection(driver)
-
     booking = BookingPage(driver)
 
     # Action
     home.click_hotels()
-
 
     hotel.select_destination(
         data["destination"]
@@ -165,8 +161,6 @@ def test_guest_details(logged_in_driver, data):
     hotel.select_checkin()
 
     hotel.select_checkin_date()
-
-    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -189,8 +183,27 @@ def test_guest_details(logged_in_driver, data):
         "guest_details"
     )
 
-    # Assert
-    assert True
+    # Assert Guest Details
+    first_name = driver.find_element(
+        *booking.FIRST_NAME
+    ).get_attribute("value")
+
+    last_name = driver.find_element(
+        *booking.LAST_NAME
+    ).get_attribute("value")
+
+    email = driver.find_element(
+        *booking.EMAIL
+    ).get_attribute("value")
+
+    assert first_name == data["fname"], \
+        "First name not entered properly"
+
+    assert last_name == data["lname"], \
+        "Last name not entered properly"
+
+    assert email == data["email"], \
+        "Email not entered properly"
 
     logger.info("Guest details test passed")
 
@@ -212,18 +225,13 @@ def test_payment(logged_in_driver, data):
 
     # Arrange
     home = HomePage(driver)
-
     hotel = HotelPage(driver)
-
     hotelselection = HotelSelection(driver)
-
     booking = BookingPage(driver)
-
     payment = PaymentPage(driver)
 
     # Action
     home.click_hotels()
-
 
     hotel.select_destination(
         data["destination"]
@@ -233,8 +241,6 @@ def test_payment(logged_in_driver, data):
 
     hotel.select_checkin_date()
 
-    # hotel.select_checkout()
-
     hotel.select_checkout_date()
 
     hotel.click_search()
@@ -242,7 +248,6 @@ def test_payment(logged_in_driver, data):
     hotelselection.close_popup()
 
     hotelselection.click_book_now()
-
 
     booking.reserve_room()
 
@@ -267,8 +272,27 @@ def test_payment(logged_in_driver, data):
         "payment_test"
     )
 
-    # Assert
-    assert True
+    # Assert Payment Fields
+    card = driver.find_element(
+        *payment.CARD_NUMBER
+    ).get_attribute("value")
+
+    expiry = driver.find_element(
+        *payment.EXPIRY_DATE
+    ).get_attribute("value")
+
+    cvv = driver.find_element(
+        *payment.CVV
+    ).get_attribute("value")
+
+    assert card != "", \
+        "Card number not entered"
+
+    assert expiry != "", \
+        "Expiry date not entered"
+
+    assert cvv != "", \
+        "CVV not entered"
 
     logger.info("Payment test passed")
 
@@ -293,13 +317,9 @@ def test_invalid_card_number_validation(
 
     # Arrange
     home = HomePage(driver)
-
     hotel = HotelPage(driver)
-
     hotelselection = HotelSelection(driver)
-
     booking = BookingPage(driver)
-
     payment = PaymentPage(driver)
 
     # Action
@@ -312,8 +332,6 @@ def test_invalid_card_number_validation(
     hotel.select_checkin()
 
     hotel.select_checkin_date()
-
-    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -335,14 +353,13 @@ def test_invalid_card_number_validation(
 
     payment.select_payment()
 
-    # Enter Invalid Card Number
+    # Invalid Card Details
     payment.enter_card_details(
         "42314562598",
         "12/30",
         "12"
     )
 
-    # Click Securely Pay button
     payment.click_securely_pay()
 
     ScreenshotUtil.capture_screenshot(
@@ -350,12 +367,16 @@ def test_invalid_card_number_validation(
         "invalid_card_validation"
     )
 
-    # Assert - Validate Error Message
+    # Assert Error Message
     error_message = driver.find_element(
         *payment.INVALID_CARD_ERROR
     ).text
 
-    assert "valid card number" in error_message.lower()
+    assert error_message != "", \
+        "Error message not displayed"
+
+    assert "valid" in error_message.lower(), \
+        "Invalid card validation failed"
 
     logger.info(
         "Invalid card validation negative test passed"
@@ -379,11 +400,8 @@ def test_empty_guest_details(logged_in_driver, data):
 
     # Arrange
     home = HomePage(driver)
-
     hotel = HotelPage(driver)
-
     hotelselection = HotelSelection(driver)
-
     booking = BookingPage(driver)
 
     # Action
@@ -396,8 +414,6 @@ def test_empty_guest_details(logged_in_driver, data):
     hotel.select_checkin()
 
     hotel.select_checkin_date()
-
-    # hotel.select_checkout()
 
     hotel.select_checkout_date()
 
@@ -420,7 +436,7 @@ def test_empty_guest_details(logged_in_driver, data):
         "empty_guest_details"
     )
 
-    # Assert
+    # Assert Empty Fields
     first_name = driver.find_element(
         *booking.FIRST_NAME
     ).get_attribute("value")
@@ -433,10 +449,15 @@ def test_empty_guest_details(logged_in_driver, data):
         *booking.EMAIL
     ).get_attribute("value")
 
-    assert first_name == ""
+    assert first_name == "", \
+        "First name field is not empty"
 
-    assert last_name == ""
+    assert last_name == "", \
+        "Last name field is not empty"
 
-    assert email == ""
+    assert email == "", \
+        "Email field is not empty"
 
-    logger.info("Empty guest details negative test passed")
+    logger.info(
+        "Empty guest details negative test passed"
+    )
