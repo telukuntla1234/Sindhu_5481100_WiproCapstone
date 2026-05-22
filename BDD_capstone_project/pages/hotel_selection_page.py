@@ -15,7 +15,7 @@ class HotelSelection:
             WaitUtils.wait_for_element_clickable(
                 self.driver,
                 HotelSelectionLocators.CLOSE_POPUP,
-                timeout=30,
+                timeout=20,
             ).click()
             logger.info("Hotel popup closed successfully")
         except Exception:
@@ -26,7 +26,7 @@ class HotelSelection:
         WaitUtils.wait_for_element_clickable(
             self.driver,
             HotelSelectionLocators.FREE_BREAKFAST,
-            timeout=30,
+            timeout=20,
         ).click()
         logger.info("Free breakfast filter selected")
 

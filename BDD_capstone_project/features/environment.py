@@ -1,6 +1,7 @@
 import os
 import shutil
 import subprocess
+import allure
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -20,8 +21,13 @@ def before_all(context):
 
 
 def before_scenario(context, scenario):
+    LogGen.start_scenario_log(scenario.name)
     logger.info("========================================")
     logger.info(f"STARTING SCENARIO: {scenario.name}")
+    allure.dynamic.parent_suite("features")
+    allure.dynamic.suite(scenario.feature.name)
+    allure.dynamic.sub_suite("BDD Scenarios")
+    allure.dynamic.parameter("data", context.test_data)
 
     browser = ConfigReader.get_browser().lower()
     headless = ConfigReader.get_headless()
@@ -52,20 +58,43 @@ def before_scenario(context, scenario):
 
 
 def after_scenario(context, scenario):
-    logger.info(f"Scenario status: {scenario.status}")
-    status_name = getattr(scenario.status, "name", str(scenario.status)).lower()
-    if status_name in ("failed", "error"):
-        screenshot_path = ScreenshotUtil.capture_screenshot(
-            context.driver,
-            scenario.name,
-        )
-        logger.error(f"Scenario did not pass. Screenshot saved: {screenshot_path}")
-    else:
-        logger.info(f"Scenario passed: {scenario.name}")
+    try:
+        logger.info(f"Scenario status: {scenario.status}")
+        status_name = getattr(scenario.status, "name", str(scenario.status)).lower()
+        if status_name in ("failed", "error"):
+            screenshot_path = ScreenshotUtil.capture_screenshot(
+                context.driver,
+                scenario.name,
+            )
+            logger.error(f"Scenario did not pass. Screenshot saved: {screenshot_path}")
+        else:
+            logger.info(f"Scenario passed: {scenario.name}")
 
-    context.driver.quit()
-    logger.info("Browser closed successfully")
-    logger.info("========================================")
+        context.driver.quit()
+        logger.info("Browser closed successfully")
+        logger.info("========================================")
+    finally:
+        attach_scenario_log()
+        LogGen.stop_scenario_log()
+
+
+def attach_scenario_log():
+    LogGen.flush_handlers()
+    log_file = LogGen.get_scenario_log_file() or LogGen.get_run_log_file()
+
+    if not log_file or not os.path.exists(log_file):
+        logger.warning("Scenario log file was not available for Allure attachment.")
+        return
+
+    try:
+        allure.attach.file(
+            log_file,
+            name="log",
+            attachment_type=allure.attachment_type.TEXT,
+        )
+        logger.info(f"Log attached to Allure report: {log_file}")
+    except Exception as exc:
+        logger.warning(f"Unable to attach log to Allure report: {exc}")
 
 
 def after_all(context):
