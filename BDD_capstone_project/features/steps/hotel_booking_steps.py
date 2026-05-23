@@ -7,20 +7,21 @@ from pages.payment_page import PaymentPage
 from utils.logger import LogGen
 from utils.screenshot_util import ScreenshotUtil
 from utils.waits import WaitUtils
+from behave.runner import Context
 
 
 logger = LogGen.loggen()
 
 # noinspection PyUnresolvedReferences
 @when("User opens Hotels section")
-def step_open_hotels(context):
+def step_open_hotels(context:Context):
     context.home_page.click_hotels()
     context.hotel_page = HotelPage(context.driver)
     ScreenshotUtil.capture_screenshot(context.driver, "hotels_page")
 
 
 @when("User searches hotels with destination and dates from test data")
-def step_search_hotels(context):
+def step_search_hotels(context:Context):
     data = context.test_data
     context.hotel_page.select_destination(data["destination"])
     context.hotel_page.select_checkin()
@@ -32,31 +33,31 @@ def step_search_hotels(context):
 
 
 @when("User closes hotel results popup if present")
-def step_close_results_popup(context):
+def step_close_results_popup(context:Context):
     context.hotel_selection = HotelSelection(context.driver)
     context.hotel_selection.close_popup()
 
 
 @when("User applies Free Breakfast filter")
-def step_apply_free_breakfast(context):
+def step_apply_free_breakfast(context:Context):
     context.hotel_selection.free_breakfast()
     ScreenshotUtil.capture_screenshot(context.driver, "free_breakfast_filter")
 
 
 @when("User selects the first available hotel")
-def step_select_first_hotel(context):
+def step_select_first_hotel(context:Context):
     context.hotel_selection.click_book_now()
     context.booking_page = BookingPage(context.driver)
     ScreenshotUtil.capture_screenshot(context.driver, "booking_page")
 
 
 @when("User reserves the recommended room")
-def step_reserve_room(context):
+def step_reserve_room(context:Context):
     context.booking_page.reserve_room()
 
 
 @when("User enters guest details from test data")
-def step_enter_guest_details(context):
+def step_enter_guest_details(context:Context):
     data = context.test_data
     context.booking_page.enter_guest_details(
         data["fname"],
@@ -67,19 +68,19 @@ def step_enter_guest_details(context):
 
 
 @when("User enters empty guest details")
-def step_enter_empty_guest_details(context):
+def step_enter_empty_guest_details(context:Context):
     context.booking_page.enter_guest_details("", "", "")
     ScreenshotUtil.capture_screenshot(context.driver, "empty_guest_details")
 
 
 @when("User proceeds to payment")
-def step_proceed_payment(context):
+def step_proceed_payment(context:Context):
     context.booking_page.click_pay_now()
     context.payment_page = PaymentPage(context.driver)
 
 
 @when("User enters card details from test data")
-def step_enter_card_details(context):
+def step_enter_card_details(context:Context):
     data = context.test_data
     context.payment_page.select_payment()
     context.payment_page.enter_card_details(
@@ -91,20 +92,20 @@ def step_enter_card_details(context):
 
 
 @when("User enters invalid card details")
-def step_enter_invalid_card_details(context):
+def step_enter_invalid_card_details(context:Context):
     context.payment_page.select_payment()
     context.payment_page.enter_card_details("42314562598", "12/30", "12")
     ScreenshotUtil.capture_screenshot(context.driver, "invalid_card_details")
 
 
 @when("User clicks Securely Pay button")
-def step_click_securely_pay(context):
+def step_click_securely_pay(context:Context):
     context.payment_page.click_securely_pay()
 
 
 
 @then("Hotels search results should be displayed")
-def step_verify_hotels_results(context):
+def step_verify_hotels_results(context:Context):
 
     WaitUtils.wait_for_url_contains(context.driver, "hotels")
 
@@ -117,7 +118,7 @@ def step_verify_hotels_results(context):
 
 
 @then("Free Breakfast filter should be applied")
-def step_verify_free_breakfast(context):
+def step_verify_free_breakfast(context:Context):
 
     current_url = context.driver.current_url.lower()
 
@@ -129,7 +130,7 @@ def step_verify_free_breakfast(context):
 
 
 @then("Guest details should be filled on booking page")
-def step_verify_guest_details(context):
+def step_verify_guest_details(context:Context):
 
     values = context.booking_page.get_guest_field_values()
 
@@ -144,7 +145,7 @@ def step_verify_guest_details(context):
 
 
 @then("Payment card details should be accepted for validation")
-def step_verify_payment_details(context):
+def step_verify_payment_details(context:Context):
 
     card_number = context.payment_page.get_card_number_value()
 
@@ -160,7 +161,7 @@ def step_verify_payment_details(context):
     )
 
 @then("Invalid card number error should be displayed")
-def step_verify_invalid_card_error(context):
+def step_verify_invalid_card_error(context:Context):
 
     error_message = context.payment_page.get_invalid_card_error()
 
@@ -176,7 +177,7 @@ def step_verify_invalid_card_error(context):
     )
 
 @then("Guest details fields should remain empty")
-def step_verify_empty_guest_details(context):
+def step_verify_empty_guest_details(context:Context):
 
     values = context.booking_page.get_guest_field_values()
 

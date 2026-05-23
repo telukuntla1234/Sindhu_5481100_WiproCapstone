@@ -5,11 +5,13 @@ from pages.hotel_page import HotelPage
 from pages.hotel_selection_page import HotelSelection
 from pages.payment_page import PaymentPage
 from utils.screenshot_util import ScreenshotUtil
+from behave.runner import Context
 
 
 @when("User completes hotel search with Free Breakfast filter from test data")
-def step_e2e_search_hotels_with_filter(context):
+def step_e2e_search_hotels_with_filter(context:Context):
     data = context.test_data
+
 
     context.home_page.click_hotels()
     context.hotel_page = HotelPage(context.driver)
@@ -30,7 +32,7 @@ def step_e2e_search_hotels_with_filter(context):
 
 
 @when("User completes hotel room booking with guest details from test data")
-def step_e2e_complete_room_booking(context):
+def step_e2e_complete_room_booking(context:Context):
     data = context.test_data
 
     context.hotel_selection.click_book_now()
@@ -47,7 +49,7 @@ def step_e2e_complete_room_booking(context):
 
 
 @when("User completes hotel payment details from test data")
-def step_e2e_complete_payment_details(context):
+def step_e2e_complete_payment_details(context:Context):
     data = context.test_data
 
     context.booking_page.click_pay_now()
@@ -62,7 +64,7 @@ def step_e2e_complete_payment_details(context):
 
 
 @then("End to end hotel booking flow should reach payment validation")
-def step_e2e_verify_payment_validation(context):
+def step_e2e_verify_payment_validation(context:Context):
 
     card_number = context.payment_page.get_card_number_value()
 
