@@ -1,0 +1,61 @@
+2026-05-22 19:14:34,515 : INFO : ========================================
+2026-05-22 19:14:34,515 : INFO : STARTING SCENARIO: Validate invalid card number error
+2026-05-22 19:14:34,516 : INFO : Config fetched: browser=edge
+2026-05-22 19:14:35,778 : INFO : Config fetched: base_url=https://www.ixigo.com/
+2026-05-22 19:14:38,585 : INFO : Browser opened and Ixigo URL loaded
+2026-05-22 19:14:48,697 : INFO : Popup not present
+2026-05-22 19:14:48,996 : INFO : Ixigo application launched
+2026-05-22 19:14:48,999 : INFO : Waiting for element clickable: ('xpath', '/html/body/main/div[1]/div/div[2]/div[2]/div/div/button')
+2026-05-22 19:14:49,240 : INFO : Login button clicked
+2026-05-22 19:14:49,241 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Enter Mobile Number']")
+2026-05-22 19:14:50,020 : INFO : Mobile number entered
+2026-05-22 19:14:50,021 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Continue')]")
+2026-05-22 19:14:50,327 : INFO : Continue button clicked
+2026-05-22 19:14:50,328 : INFO : Mobile submitted; waiting for OTP screen
+2026-05-22 19:14:50,332 : INFO : Waiting up to 20 seconds for manual OTP entry
+2026-05-22 19:15:21,303 : INFO : OTP accepted and login overlay closed
+2026-05-22 19:15:21,470 : INFO : Screenshot saved at: reports/screenshots/manual_otp_entry_20260522_191521.png
+2026-05-22 19:15:21,689 : INFO : Screenshot saved at: reports/screenshots/login_after_manual_otp_20260522_191521.png
+2026-05-22 19:15:21,697 : INFO : Waiting for element clickable: ('xpath', "(//a[contains(@href,'hotels')])[2]")
+2026-05-22 19:15:24,003 : INFO : Hotels menu clicked
+2026-05-22 19:15:24,381 : INFO : Screenshot saved at: reports/screenshots/hotels_page_20260522_191524.png
+2026-05-22 19:15:24,390 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='location-input-web']")
+2026-05-22 19:15:24,856 : INFO : Waiting for element clickable: ('xpath', "(//div[@role='button'])[1]")
+2026-05-22 19:15:25,654 : INFO : Jaipur destination selected
+2026-05-22 19:15:25,655 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='checkin-input']")
+2026-05-22 19:15:25,968 : INFO : Check-in field selected
+2026-05-22 19:15:25,969 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 16, 2026']]")
+2026-05-22 19:15:26,258 : INFO : Check-in date selected
+2026-05-22 19:15:26,259 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 18, 2026']]")
+2026-05-22 19:15:26,536 : INFO : Checkout date selected
+2026-05-22 19:15:26,537 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Rooms & Guests']")
+2026-05-22 19:15:26,773 : INFO : Rooms and guests selected
+2026-05-22 19:15:26,774 : INFO : Waiting for element clickable: ('xpath', "//button[@data-testid='search-hotels']")
+2026-05-22 19:15:27,076 : INFO : Search button clicked
+2026-05-22 19:15:27,882 : INFO : Screenshot saved at: reports/screenshots/hotel_search_20260522_191527.png
+2026-05-22 19:15:27,896 : INFO : Waiting for element clickable: ('xpath', "//div[@data-testid='bpg-home-modal-close']")
+2026-05-22 19:15:30,700 : INFO : Hotel popup closed successfully
+2026-05-22 19:15:30,704 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Book Now')][1]")
+2026-05-22 19:15:31,043 : INFO : Book now button clicked
+2026-05-22 19:15:31,148 : INFO : Switched to booking window
+2026-05-22 19:15:31,779 : INFO : Screenshot saved at: reports/screenshots/booking_page_20260522_191531.png
+2026-05-22 19:15:31,791 : INFO : Waiting for element present: ('xpath', "//button[@data-testid='reserve-recommended-room']")
+2026-05-22 19:15:32,673 : INFO : Reserve room button clicked
+2026-05-22 19:15:32,678 : INFO : Waiting for element present: ('name', 'firstName')
+2026-05-22 19:15:33,906 : INFO : Guest details entered successfully
+2026-05-22 19:15:34,069 : INFO : Screenshot saved at: reports/screenshots/guest_details_20260522_191533.png
+2026-05-22 19:15:34,079 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Pay Now')]")
+2026-05-22 19:15:34,306 : INFO : Pay now button clicked
+2026-05-22 19:15:34,312 : INFO : Waiting for element clickable: ('id', 'CARD')
+2026-05-22 19:15:36,310 : INFO : Payment option selected successfully
+2026-05-22 19:15:36,311 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='card-number']")
+2026-05-22 19:15:36,945 : INFO : Card details entered
+2026-05-22 19:15:37,142 : INFO : Screenshot saved at: reports/screenshots/invalid_card_details_20260522_191536.png
+2026-05-22 19:15:37,152 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Securely Pay')]")
+2026-05-22 19:15:37,361 : INFO : Securely Pay button clicked
+2026-05-22 19:15:37,367 : INFO : Waiting for element visible: ('xpath', "//*[contains(text(),'valid card number')]")
+2026-05-22 19:15:37,655 : INFO : Screenshot saved at: reports/screenshots/invalid_card_validation_20260522_191537.png
+2026-05-22 19:15:37,660 : INFO : Scenario status: Status.passed
+2026-05-22 19:15:37,661 : INFO : Scenario passed: Validate invalid card number error
+2026-05-22 19:15:40,467 : INFO : Browser closed successfully
+2026-05-22 19:15:40,468 : INFO : ========================================

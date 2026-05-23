@@ -1,0 +1,51 @@
+2026-05-22 19:12:27,529 : INFO : ========================================
+2026-05-22 19:12:27,529 : INFO : STARTING SCENARIO: Enter guest details on booking page
+2026-05-22 19:12:27,529 : INFO : Config fetched: browser=edge
+2026-05-22 19:12:29,203 : INFO : Config fetched: base_url=https://www.ixigo.com/
+2026-05-22 19:12:33,846 : INFO : Browser opened and Ixigo URL loaded
+2026-05-22 19:12:43,889 : INFO : Popup not present
+2026-05-22 19:12:44,223 : INFO : Ixigo application launched
+2026-05-22 19:12:44,228 : INFO : Waiting for element clickable: ('xpath', '/html/body/main/div[1]/div/div[2]/div[2]/div/div/button')
+2026-05-22 19:12:44,594 : INFO : Login button clicked
+2026-05-22 19:12:44,595 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Enter Mobile Number']")
+2026-05-22 19:12:45,367 : INFO : Mobile number entered
+2026-05-22 19:12:45,369 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Continue')]")
+2026-05-22 19:12:45,593 : INFO : Continue button clicked
+2026-05-22 19:12:45,594 : INFO : Mobile submitted; waiting for OTP screen
+2026-05-22 19:12:45,598 : INFO : Waiting up to 20 seconds for manual OTP entry
+2026-05-22 19:13:16,354 : INFO : OTP accepted and login overlay closed
+2026-05-22 19:13:16,518 : INFO : Screenshot saved at: reports/screenshots/manual_otp_entry_20260522_191316.png
+2026-05-22 19:13:16,765 : INFO : Screenshot saved at: reports/screenshots/login_after_manual_otp_20260522_191316.png
+2026-05-22 19:13:16,773 : INFO : Waiting for element clickable: ('xpath', "(//a[contains(@href,'hotels')])[2]")
+2026-05-22 19:13:18,305 : INFO : Hotels menu clicked
+2026-05-22 19:13:18,494 : INFO : Screenshot saved at: reports/screenshots/hotels_page_20260522_191318.png
+2026-05-22 19:13:18,505 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='location-input-web']")
+2026-05-22 19:13:18,937 : INFO : Waiting for element clickable: ('xpath', "(//div[@role='button'])[1]")
+2026-05-22 19:13:19,785 : INFO : Jaipur destination selected
+2026-05-22 19:13:19,786 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='checkin-input']")
+2026-05-22 19:13:20,186 : INFO : Check-in field selected
+2026-05-22 19:13:20,187 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 16, 2026']]")
+2026-05-22 19:13:20,428 : INFO : Check-in date selected
+2026-05-22 19:13:20,429 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 18, 2026']]")
+2026-05-22 19:13:20,636 : INFO : Checkout date selected
+2026-05-22 19:13:20,637 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Rooms & Guests']")
+2026-05-22 19:13:20,947 : INFO : Rooms and guests selected
+2026-05-22 19:13:20,947 : INFO : Waiting for element clickable: ('xpath', "//button[@data-testid='search-hotels']")
+2026-05-22 19:13:21,247 : INFO : Search button clicked
+2026-05-22 19:13:21,698 : INFO : Screenshot saved at: reports/screenshots/hotel_search_20260522_191321.png
+2026-05-22 19:13:21,710 : INFO : Waiting for element clickable: ('xpath', "//div[@data-testid='bpg-home-modal-close']")
+2026-05-22 19:13:24,414 : INFO : Hotel popup closed successfully
+2026-05-22 19:13:24,418 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Book Now')][1]")
+2026-05-22 19:13:24,815 : INFO : Book now button clicked
+2026-05-22 19:13:24,942 : INFO : Switched to booking window
+2026-05-22 19:13:25,618 : INFO : Screenshot saved at: reports/screenshots/booking_page_20260522_191324.png
+2026-05-22 19:13:25,628 : INFO : Waiting for element present: ('xpath', "//button[@data-testid='reserve-recommended-room']")
+2026-05-22 19:13:26,616 : INFO : Reserve room button clicked
+2026-05-22 19:13:26,621 : INFO : Waiting for element present: ('name', 'firstName')
+2026-05-22 19:13:27,993 : INFO : Guest details entered successfully
+2026-05-22 19:13:28,117 : INFO : Screenshot saved at: reports/screenshots/guest_details_20260522_191327.png
+2026-05-22 19:13:28,226 : INFO : Scenario status: Status.passed
+2026-05-22 19:13:28,227 : INFO : Scenario passed: Enter guest details on booking page
+2026-05-22 19:13:31,193 : INFO : Browser closed successfully
+2026-05-22 19:13:31,194 : INFO : ========================================
+2026-05-22 19:13:31,196 : INFO : Log attached to Allure report: logs/scenarios/Enter_guest_details_on_booking_page_20260522_191227.log

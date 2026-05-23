@@ -1,0 +1,45 @@
+2026-05-22 19:11:27,144 : INFO : ========================================
+2026-05-22 19:11:27,148 : INFO : STARTING SCENARIO: Apply Free Breakfast filter on hotel results
+2026-05-22 19:11:27,148 : INFO : Config fetched: browser=edge
+2026-05-22 19:11:28,412 : INFO : Config fetched: base_url=https://www.ixigo.com/
+2026-05-22 19:11:33,060 : INFO : Browser opened and Ixigo URL loaded
+2026-05-22 19:11:43,178 : INFO : Popup not present
+2026-05-22 19:11:43,529 : INFO : Ixigo application launched
+2026-05-22 19:11:43,532 : INFO : Waiting for element clickable: ('xpath', '/html/body/main/div[1]/div/div[2]/div[2]/div/div/button')
+2026-05-22 19:11:43,872 : INFO : Login button clicked
+2026-05-22 19:11:43,873 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Enter Mobile Number']")
+2026-05-22 19:11:44,694 : INFO : Mobile number entered
+2026-05-22 19:11:44,695 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Continue')]")
+2026-05-22 19:11:44,960 : INFO : Continue button clicked
+2026-05-22 19:11:44,961 : INFO : Mobile submitted; waiting for OTP screen
+2026-05-22 19:11:44,964 : INFO : Waiting up to 20 seconds for manual OTP entry
+2026-05-22 19:12:15,807 : INFO : OTP accepted and login overlay closed
+2026-05-22 19:12:15,957 : INFO : Screenshot saved at: reports/screenshots/manual_otp_entry_20260522_191215.png
+2026-05-22 19:12:16,160 : INFO : Screenshot saved at: reports/screenshots/login_after_manual_otp_20260522_191215.png
+2026-05-22 19:12:16,168 : INFO : Waiting for element clickable: ('xpath', "(//a[contains(@href,'hotels')])[2]")
+2026-05-22 19:12:17,048 : INFO : Hotels menu clicked
+2026-05-22 19:12:17,361 : INFO : Screenshot saved at: reports/screenshots/hotels_page_20260522_191217.png
+2026-05-22 19:12:17,369 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='location-input-web']")
+2026-05-22 19:12:17,806 : INFO : Waiting for element clickable: ('xpath', "(//div[@role='button'])[1]")
+2026-05-22 19:12:18,610 : INFO : Jaipur destination selected
+2026-05-22 19:12:18,610 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='checkin-input']")
+2026-05-22 19:12:18,921 : INFO : Check-in field selected
+2026-05-22 19:12:18,922 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 16, 2026']]")
+2026-05-22 19:12:19,314 : INFO : Check-in date selected
+2026-05-22 19:12:19,314 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 18, 2026']]")
+2026-05-22 19:12:19,641 : INFO : Checkout date selected
+2026-05-22 19:12:19,642 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Rooms & Guests']")
+2026-05-22 19:12:19,941 : INFO : Rooms and guests selected
+2026-05-22 19:12:19,942 : INFO : Waiting for element clickable: ('xpath', "//button[@data-testid='search-hotels']")
+2026-05-22 19:12:20,199 : INFO : Search button clicked
+2026-05-22 19:12:20,660 : INFO : Screenshot saved at: reports/screenshots/hotel_search_20260522_191220.png
+2026-05-22 19:12:20,692 : INFO : Waiting for element clickable: ('xpath', "//div[@data-testid='bpg-home-modal-close']")
+2026-05-22 19:12:23,761 : INFO : Hotel popup closed successfully
+2026-05-22 19:12:23,800 : INFO : Waiting for element clickable: ('xpath', "//p[text()='Free Breakfast']/ancestor::div[@role='listitem']")
+2026-05-22 19:12:24,107 : INFO : Free breakfast filter selected
+2026-05-22 19:12:24,297 : INFO : Screenshot saved at: reports/screenshots/free_breakfast_filter_20260522_191224.png
+2026-05-22 19:12:24,603 : INFO : Screenshot saved at: reports/screenshots/filters_applied_20260522_191224.png
+2026-05-22 19:12:24,608 : INFO : Scenario status: Status.passed
+2026-05-22 19:12:24,609 : INFO : Scenario passed: Apply Free Breakfast filter on hotel results
+2026-05-22 19:12:27,517 : INFO : Browser closed successfully
+2026-05-22 19:12:27,517 : INFO : ========================================

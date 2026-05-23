@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","71373","Validate empty guest details remain blank","","2026-05-22","passed","2026-05-22","","","",""
+"","65959","Validate invalid card number error","","2026-05-22","passed","2026-05-22","","","",""
+"","60385","Apply Free Breakfast filter on hotel results","","2026-05-22","passed","2026-05-22","","","",""
+"","63670","Enter guest details on booking page","","2026-05-22","passed","2026-05-22","","","",""
+"","68547","Complete end to end hotel booking flow up to payment","","2026-05-22","passed","2026-05-22","","","",""
+"","68629","Search hotels for destination from test data","","2026-05-22","passed","2026-05-22","","","",""
+"","63309","Enter card details on payment page","","2026-05-22","passed","2026-05-22","","","",""

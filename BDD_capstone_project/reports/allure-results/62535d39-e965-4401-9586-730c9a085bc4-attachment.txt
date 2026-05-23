@@ -1,0 +1,61 @@
+2026-05-22 19:08:06,340 : INFO : ========================================
+2026-05-22 19:08:06,340 : INFO : STARTING SCENARIO: Complete end to end hotel booking flow up to payment
+2026-05-22 19:08:06,341 : INFO : Config fetched: browser=edge
+2026-05-22 19:08:07,796 : INFO : Config fetched: base_url=https://www.ixigo.com/
+2026-05-22 19:08:10,379 : INFO : Browser opened and Ixigo URL loaded
+2026-05-22 19:08:20,476 : INFO : Popup not present
+2026-05-22 19:08:20,785 : INFO : Ixigo application launched
+2026-05-22 19:08:20,792 : INFO : Waiting for element clickable: ('xpath', '/html/body/main/div[1]/div/div[2]/div[2]/div/div/button')
+2026-05-22 19:08:21,066 : INFO : Login button clicked
+2026-05-22 19:08:21,067 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Enter Mobile Number']")
+2026-05-22 19:08:21,867 : INFO : Mobile number entered
+2026-05-22 19:08:21,868 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Continue')]")
+2026-05-22 19:08:22,188 : INFO : Continue button clicked
+2026-05-22 19:08:22,189 : INFO : Mobile submitted; waiting for OTP screen
+2026-05-22 19:08:22,192 : INFO : Waiting up to 20 seconds for manual OTP entry
+2026-05-22 19:08:53,094 : INFO : OTP accepted and login overlay closed
+2026-05-22 19:08:53,235 : INFO : Screenshot saved at: reports/screenshots/manual_otp_entry_20260522_190853.png
+2026-05-22 19:08:53,394 : INFO : Screenshot saved at: reports/screenshots/login_after_manual_otp_20260522_190853.png
+2026-05-22 19:08:53,407 : INFO : Waiting for element clickable: ('xpath', "(//a[contains(@href,'hotels')])[2]")
+2026-05-22 19:08:54,809 : INFO : Hotels menu clicked
+2026-05-22 19:08:55,014 : INFO : Screenshot saved at: reports/screenshots/e2e_hotels_page_20260522_190854.png
+2026-05-22 19:08:55,020 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='location-input-web']")
+2026-05-22 19:08:55,495 : INFO : Waiting for element clickable: ('xpath', "(//div[@role='button'])[1]")
+2026-05-22 19:08:56,351 : INFO : Jaipur destination selected
+2026-05-22 19:08:56,352 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='checkin-input']")
+2026-05-22 19:08:56,698 : INFO : Check-in field selected
+2026-05-22 19:08:56,699 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 16, 2026']]")
+2026-05-22 19:08:56,964 : INFO : Check-in date selected
+2026-05-22 19:08:56,964 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 18, 2026']]")
+2026-05-22 19:08:57,264 : INFO : Checkout date selected
+2026-05-22 19:08:57,265 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Rooms & Guests']")
+2026-05-22 19:08:57,588 : INFO : Rooms and guests selected
+2026-05-22 19:08:57,588 : INFO : Waiting for element clickable: ('xpath', "//button[@data-testid='search-hotels']")
+2026-05-22 19:08:57,882 : INFO : Search button clicked
+2026-05-22 19:08:58,706 : INFO : Screenshot saved at: reports/screenshots/e2e_hotel_search_20260522_190857.png
+2026-05-22 19:08:58,712 : INFO : Waiting for element clickable: ('xpath', "//div[@data-testid='bpg-home-modal-close']")
+2026-05-22 19:09:00,655 : INFO : Hotel popup closed successfully
+2026-05-22 19:09:00,664 : INFO : Waiting for element clickable: ('xpath', "//p[text()='Free Breakfast']/ancestor::div[@role='listitem']")
+2026-05-22 19:09:01,016 : INFO : Free breakfast filter selected
+2026-05-22 19:09:01,269 : INFO : Screenshot saved at: reports/screenshots/e2e_free_breakfast_filter_20260522_190901.png
+2026-05-22 19:09:01,277 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Book Now')][1]")
+2026-05-22 19:09:02,424 : INFO : Book now button clicked
+2026-05-22 19:09:02,463 : INFO : Switched to booking window
+2026-05-22 19:09:03,509 : INFO : Screenshot saved at: reports/screenshots/e2e_booking_page_20260522_190902.png
+2026-05-22 19:09:03,515 : INFO : Waiting for element present: ('xpath', "//button[@data-testid='reserve-recommended-room']")
+2026-05-22 19:09:03,823 : INFO : Reserve room button clicked
+2026-05-22 19:09:03,824 : INFO : Waiting for element present: ('name', 'firstName')
+2026-05-22 19:09:05,185 : INFO : Guest details entered successfully
+2026-05-22 19:09:05,368 : INFO : Screenshot saved at: reports/screenshots/e2e_guest_details_20260522_190905.png
+2026-05-22 19:09:05,375 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Pay Now')]")
+2026-05-22 19:09:05,596 : INFO : Pay now button clicked
+2026-05-22 19:09:05,598 : INFO : Waiting for element clickable: ('id', 'CARD')
+2026-05-22 19:09:10,736 : INFO : Payment option selected successfully
+2026-05-22 19:09:10,737 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='card-number']")
+2026-05-22 19:09:11,320 : INFO : Card details entered
+2026-05-22 19:09:11,630 : INFO : Screenshot saved at: reports/screenshots/e2e_payment_card_details_20260522_190911.png
+2026-05-22 19:09:11,897 : INFO : Screenshot saved at: reports/screenshots/e2e_payment_details_entered_20260522_190911.png
+2026-05-22 19:09:11,902 : INFO : Scenario status: Status.passed
+2026-05-22 19:09:11,902 : INFO : Scenario passed: Complete end to end hotel booking flow up to payment
+2026-05-22 19:09:14,872 : INFO : Browser closed successfully
+2026-05-22 19:09:14,873 : INFO : ========================================

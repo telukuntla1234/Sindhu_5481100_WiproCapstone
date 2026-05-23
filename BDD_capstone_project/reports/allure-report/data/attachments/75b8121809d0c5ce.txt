@@ -1,0 +1,41 @@
+2026-05-22 19:10:18,511 : INFO : ========================================
+2026-05-22 19:10:18,512 : INFO : STARTING SCENARIO: Search hotels for destination from test data
+2026-05-22 19:10:18,512 : INFO : Config fetched: browser=edge
+2026-05-22 19:10:19,674 : INFO : Config fetched: base_url=https://www.ixigo.com/
+2026-05-22 19:10:23,465 : INFO : Browser opened and Ixigo URL loaded
+2026-05-22 19:10:33,514 : INFO : Popup not present
+2026-05-22 19:10:33,869 : INFO : Ixigo application launched
+2026-05-22 19:10:33,875 : INFO : Waiting for element clickable: ('xpath', '/html/body/main/div[1]/div/div[2]/div[2]/div/div/button')
+2026-05-22 19:10:34,276 : INFO : Login button clicked
+2026-05-22 19:10:34,278 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Enter Mobile Number']")
+2026-05-22 19:10:35,387 : INFO : Mobile number entered
+2026-05-22 19:10:35,391 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Continue')]")
+2026-05-22 19:10:35,728 : INFO : Continue button clicked
+2026-05-22 19:10:35,728 : INFO : Mobile submitted; waiting for OTP screen
+2026-05-22 19:10:35,734 : INFO : Waiting up to 20 seconds for manual OTP entry
+2026-05-22 19:11:17,783 : INFO : OTP accepted and login overlay closed
+2026-05-22 19:11:17,948 : INFO : Screenshot saved at: reports/screenshots/manual_otp_entry_20260522_191117.png
+2026-05-22 19:11:18,159 : INFO : Screenshot saved at: reports/screenshots/login_after_manual_otp_20260522_191117.png
+2026-05-22 19:11:18,168 : INFO : Waiting for element clickable: ('xpath', "(//a[contains(@href,'hotels')])[2]")
+2026-05-22 19:11:19,424 : INFO : Hotels menu clicked
+2026-05-22 19:11:19,660 : INFO : Screenshot saved at: reports/screenshots/hotels_page_20260522_191119.png
+2026-05-22 19:11:19,669 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='location-input-web']")
+2026-05-22 19:11:20,157 : INFO : Waiting for element clickable: ('xpath', "(//div[@role='button'])[1]")
+2026-05-22 19:11:20,994 : INFO : Jaipur destination selected
+2026-05-22 19:11:20,995 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='checkin-input']")
+2026-05-22 19:11:21,465 : INFO : Check-in field selected
+2026-05-22 19:11:21,466 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 16, 2026']]")
+2026-05-22 19:11:21,807 : INFO : Check-in date selected
+2026-05-22 19:11:21,808 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 18, 2026']]")
+2026-05-22 19:11:22,186 : INFO : Checkout date selected
+2026-05-22 19:11:22,187 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Rooms & Guests']")
+2026-05-22 19:11:22,546 : INFO : Rooms and guests selected
+2026-05-22 19:11:22,547 : INFO : Waiting for element clickable: ('xpath', "//button[@data-testid='search-hotels']")
+2026-05-22 19:11:22,875 : INFO : Search button clicked
+2026-05-22 19:11:23,714 : INFO : Screenshot saved at: reports/screenshots/hotel_search_20260522_191122.png
+2026-05-22 19:11:23,726 : INFO : Waiting for URL to contain: hotels
+2026-05-22 19:11:24,209 : INFO : Screenshot saved at: reports/screenshots/search_results_20260522_191123.png
+2026-05-22 19:11:24,215 : INFO : Scenario status: Status.passed
+2026-05-22 19:11:24,217 : INFO : Scenario passed: Search hotels for destination from test data
+2026-05-22 19:11:27,133 : INFO : Browser closed successfully
+2026-05-22 19:11:27,133 : INFO : ========================================

@@ -1,0 +1,51 @@
+2026-05-22 19:15:40,478 : INFO : ========================================
+2026-05-22 19:15:40,478 : INFO : STARTING SCENARIO: Validate empty guest details remain blank
+2026-05-22 19:15:40,479 : INFO : Config fetched: browser=edge
+2026-05-22 19:15:41,612 : INFO : Config fetched: base_url=https://www.ixigo.com/
+2026-05-22 19:15:43,569 : INFO : Browser opened and Ixigo URL loaded
+2026-05-22 19:15:53,616 : INFO : Popup not present
+2026-05-22 19:15:53,929 : INFO : Ixigo application launched
+2026-05-22 19:15:53,936 : INFO : Waiting for element clickable: ('xpath', '/html/body/main/div[1]/div/div[2]/div[2]/div/div/button')
+2026-05-22 19:15:54,147 : INFO : Login button clicked
+2026-05-22 19:15:54,148 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Enter Mobile Number']")
+2026-05-22 19:15:54,924 : INFO : Mobile number entered
+2026-05-22 19:15:54,925 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Continue')]")
+2026-05-22 19:15:55,291 : INFO : Continue button clicked
+2026-05-22 19:15:55,292 : INFO : Mobile submitted; waiting for OTP screen
+2026-05-22 19:15:55,298 : INFO : Waiting up to 20 seconds for manual OTP entry
+2026-05-22 19:16:36,781 : INFO : OTP accepted and login overlay closed
+2026-05-22 19:16:36,929 : INFO : Screenshot saved at: reports/screenshots/manual_otp_entry_20260522_191636.png
+2026-05-22 19:16:37,224 : INFO : Screenshot saved at: reports/screenshots/login_after_manual_otp_20260522_191636.png
+2026-05-22 19:16:37,233 : INFO : Waiting for element clickable: ('xpath', "(//a[contains(@href,'hotels')])[2]")
+2026-05-22 19:16:38,275 : INFO : Hotels menu clicked
+2026-05-22 19:16:38,578 : INFO : Screenshot saved at: reports/screenshots/hotels_page_20260522_191638.png
+2026-05-22 19:16:38,587 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='location-input-web']")
+2026-05-22 19:16:39,044 : INFO : Waiting for element clickable: ('xpath', "(//div[@role='button'])[1]")
+2026-05-22 19:16:39,804 : INFO : Jaipur destination selected
+2026-05-22 19:16:39,804 : INFO : Waiting for element clickable: ('xpath', "//input[@data-testid='checkin-input']")
+2026-05-22 19:16:40,112 : INFO : Check-in field selected
+2026-05-22 19:16:40,113 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 16, 2026']]")
+2026-05-22 19:16:40,463 : INFO : Check-in date selected
+2026-05-22 19:16:40,464 : INFO : Waiting for element clickable: ('xpath', "//button[.//abbr[@aria-label='June 18, 2026']]")
+2026-05-22 19:16:40,798 : INFO : Checkout date selected
+2026-05-22 19:16:40,799 : INFO : Waiting for element clickable: ('xpath', "//input[@placeholder='Rooms & Guests']")
+2026-05-22 19:16:41,127 : INFO : Rooms and guests selected
+2026-05-22 19:16:41,128 : INFO : Waiting for element clickable: ('xpath', "//button[@data-testid='search-hotels']")
+2026-05-22 19:16:41,439 : INFO : Search button clicked
+2026-05-22 19:16:42,169 : INFO : Screenshot saved at: reports/screenshots/hotel_search_20260522_191641.png
+2026-05-22 19:16:42,265 : INFO : Waiting for element clickable: ('xpath', "//div[@data-testid='bpg-home-modal-close']")
+2026-05-22 19:16:44,320 : INFO : Hotel popup closed successfully
+2026-05-22 19:16:44,324 : INFO : Waiting for element clickable: ('xpath', "//button[contains(text(),'Book Now')][1]")
+2026-05-22 19:16:45,676 : INFO : Book now button clicked
+2026-05-22 19:16:45,728 : INFO : Switched to booking window
+2026-05-22 19:16:46,464 : INFO : Screenshot saved at: reports/screenshots/booking_page_20260522_191645.png
+2026-05-22 19:16:46,475 : INFO : Waiting for element present: ('xpath', "//button[@data-testid='reserve-recommended-room']")
+2026-05-22 19:16:47,343 : INFO : Reserve room button clicked
+2026-05-22 19:16:47,349 : INFO : Waiting for element present: ('name', 'firstName')
+2026-05-22 19:16:48,587 : INFO : Guest details entered successfully
+2026-05-22 19:16:48,746 : INFO : Screenshot saved at: reports/screenshots/empty_guest_details_20260522_191648.png
+2026-05-22 19:16:48,878 : INFO : Scenario status: Status.passed
+2026-05-22 19:16:48,879 : INFO : Scenario passed: Validate empty guest details remain blank
+2026-05-22 19:16:51,843 : INFO : Browser closed successfully
+2026-05-22 19:16:51,843 : INFO : ========================================
+2026-05-22 19:16:51,846 : INFO : Log attached to Allure report: logs/scenarios/Validate_empty_guest_details_remain_blank_20260522_191540.log
